@@ -1,4 +1,5 @@
 library "jenkinsci-unstashParam-library"
+
 pipeline {
     agent any
     parameters {
@@ -11,6 +12,9 @@ pipeline {
         stage('Create Path') {
             steps {
                 script {
+                    // 清空工作区
+                    cleanWs()
+
                     // 创建主路径
                     try {
                         sh """ossutil mkdir ${params.ProjectPath}"""
