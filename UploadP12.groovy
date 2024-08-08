@@ -3,7 +3,7 @@ library "jenkinsci-unstashParam-library"
 pipeline {
     agent any
     parameters {
-        file(name: 'FileName', description: '上传Apple开发者后台创建的.p12结尾的文件')
+        file(name: 'FileName', description: '上传Apple开发者后台创建的.p12结尾的文件，文件名中不允许带空格，否则会报错！')
         string(name: 'Password', defaultValue: "''", description: "p12证书的密码，空密码时请填''")
         string(name: 'PowerOnPassword', defaultValue: '', description: '开机密码')
     }
